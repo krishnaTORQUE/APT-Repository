@@ -1,15 +1,27 @@
 #!/bin/bash
 
 # APT Quick Shell
-# Version: 1.0
-# Update: 04/05/2018 09:10PM (UTC+5:30)
+# Version: 1.1
 
-# Commands & Descriptions: 
+# Commands & Descriptions:
 #	update : Update & Upgrade All.
-#	clean  : Clean All & Empty Trash also.
+#	clean  : Clean All + Empty Trash & Temp also.
 #	both   : Update & Clean.
+#	purge  : Clean All + Remove Cache, Unnecessary Files & Packages & Old unused Kernel.
 #	fix    : Fixing Installed & Configuring.
-#	all    : Run All (Update, Clean & Fix).
+#	all    : Run All (Update, Clean Purge & Fix).
+
+bold_txt=$(tput bold)
+normal_txt=$(tput sgr0)
+
+if_func_run=f
+while getopts c:s:u: option; do
+	case $option in
+		c) _command=$OPTARG;;
+		s) s_flag=$OPTARG;;
+		u) u_flag=$OPTARG;;
+	esac
+done
 
 function run_update() {
 	sudo apt-get update -y
@@ -17,6 +29,7 @@ function run_update() {
 	sudo apt-get dist-upgrade -y
 	sudo apt update -y
 	sudo apt upgrade -y
+	if_func_run=t
 }
 
 function run_clean() {
@@ -24,58 +37,72 @@ function run_clean() {
 	sudo apt-get auto-clean -y
 	sudo apt auto-remove -y
 	sudo apt auto-clean -y
-	rm -rf ~/.local/share/Trash/*
+	if [ $u_flag = sudo ]; then
+		sudo rm -rf /home/$USER/.local/share/Trash/*
+		sudo rm -rf /tmp/*
+	else
+		rm -rf /home/$USER/.local/share/Trash/*
+		rm -rf /tmp/*
+	fi
+	if_func_run=t
+}
+
+function run_purge() {
+	sudo apt-get remove -y
+	sudo apt remove -y
+	sudo apt-get clean -y
+	sudo apt clean -y
+	sudo apt-get autoremove --purge
+	if_func_run=t
 }
 
 function run_fix() {
 	sudo apt-get install -f
 	sudo dpkg --configure -a
-	sudo apt-get install -f
+	if_func_run=t
 }
 
-bold_txt=$(tput bold)
-normal_txt=$(tput sgr0)
-
-printf "${bold_txt}update: ${normal_txt} To Update & Upgrade All.
-${bold_txt}clean: ${normal_txt} To Clean All + Trash.
-${bold_txt}both: ${normal_txt} Update & Clean.
-${bold_txt}fix: ${normal_txt} Fixing Installed & Configuring.
-${bold_txt}all: ${normal_txt} Run All (Update, Clean & Fix).
-Default is: ${bold_txt}both${normal_txt}. Press ${bold_txt}command / control + c${normal_txt} to cancel.
-${bold_txt}Enter Command:\n${normal_txt}"
-
-read _command
-
 if [ -z $_command ]; then
-		run_clean
+printf "${bold_txt}update: ${normal_txt}To Update & Upgrade All.
+${bold_txt}clean: ${normal_txt}Clean All + Empty Trash & Temp also.
+${bold_txt}both: ${normal_txt}Update & Clean.
+${bold_txt}purge: ${normal_txt}Clean All + Remove Cache, Unnecessary Files & Packages & Old unused Kernel.
+${bold_txt}fix: ${normal_txt}Fixing Installed & Configuring.
+${bold_txt}all: ${normal_txt}Run All (Update, Clean Purge & Fix).
+Default is: ${bold_txt}both${normal_txt}. Press ${bold_txt}command / control + c ${normal_txt}to cancel.
+${bold_txt}Enter Command:\n${normal_txt}"
+read _command
+fi
+
+case $_command in
+	update) run_update;;
+	clean) run_clean;;
+	*|both) run_clean
 		run_update
 		run_clean
-		printf "${bold_txt}Complete.\n${normal_txt}"
-else
-	if [ $_command = all ]; then
+	;;
+	purge) run_purge
+		run_clean
+	;;
+	fix) run_update
+		run_fix
+		run_update
+	;;
+	all) run_purge
 		run_clean
 		run_update
 		run_fix
 		run_update
 		run_clean
-		printf "${bold_txt}Complete.\n${normal_txt}"
-	elif [ $_command = both ]; then
-		run_clean
-		run_update
-		run_clean
-		printf "${bold_txt}Complete.\n${normal_txt}"
-	elif [ $_command = fix ]; then
-		run_update
-		run_fix
-		run_update
-		printf "${bold_txt}Complete.\n${normal_txt}"
-	elif [ $_command = update ]; then
-		run_update
-		printf "${bold_txt}Complete.\n${normal_txt}"
-	elif [ $_command = clean ]; then
-		run_clean
-		printf "${bold_txt}Complete.\n${normal_txt}"
-	else 
-		printf "${bold_txt}Sorry, Command not found.\n${normal_txt}"
-	fi
+	;;
+esac
+
+if [ $if_func_run = t ]; then
+	printf "${bold_txt}Complete.\n${normal_txt}"
+
+	case $s_flag in
+		shutdown) shutdown -P now;;
+		restart) reboot;;
+		logout) gnome-session-quit --no-prompt;;
+	esac
 fi

@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # APT First Run GNOME
-# Version: 1.0
-# Update: 04/05/2018 09:10PM (UTC+5:30)
+# Version: 1.1
 
 # NOTE:
 # 	Run only once when you install fresh GNOME based OS
@@ -15,10 +14,10 @@
 
 # PPA Adding:
 # 			Graphics Driver
-#			Gnome 
+#			Gnome
 #			LibreOffice
 
-# Install:
+# Install (Auto):
 #		quicks.sh
 #		Restricted Extras
 # 		Xserver Xorg
@@ -47,7 +46,7 @@ printf "
 | |_| | |\  | |_| | |  | | |___  | |_| | |___ ___) | . \  | || |_| |  __/ 
  \____|_| \_|\___/|_|  |_|_____| |____/|_____|____/|_|\_\ |_| \___/|_|    
 
-                             Version: 1.0
+                             Version: 1.1
 
 "
 
@@ -127,7 +126,7 @@ wget https://raw.githubusercontent.com/krishnaTORQUE/APT-Repository/master/quick
 sudo apt-get install ubuntu-restricted-extras -y
 sudo dpkg-reconfigure libdvd-pkd -y
 
-# Install Xorg & Drivers
+# Install Xorg for Library & Drivers
 sudo apt-get install xserver-xorg -y
 
 # Install Dconf-Editor
@@ -157,7 +156,7 @@ if [[ $install_chrome = Y ]] || [[ $install_chrome = y ]]; then
 	sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
 fi
 
-# Install libreOffice If true
+# Install LibreOffice If true
 if [[ $install_libreoffice = Y ]] || [[ $install_libreoffice = y ]]; then
 	sudo apt-get install libreoffice -y
 fi

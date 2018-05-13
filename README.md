@@ -8,6 +8,13 @@ Linux APT Based OS Projects
 
 
 
+> **_Version_**
+- quicks.sh (1.1)
+- first-run-gnome.sh (1.1)
+- NMP (1.0)
+
+
+
 > **_Tested_**
 - Ubuntu (17, 18)
 
@@ -15,7 +22,7 @@ Linux APT Based OS Projects
 
 > **_Note_**
 
-Well tested but I am not responsible for any break to your system
+Codes are Well tested, but I am not responsible for any break to your system.
 
 
 
