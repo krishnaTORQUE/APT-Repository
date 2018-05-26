@@ -19,10 +19,10 @@
 		phpMyAdmin (4.8.1)
 
 	Improved:
-		Installed
+		Setup
 		Configure Files
 
-	NOTE: Uploaded Files 50 & Upload File Size is 100MB
+	NOTE: Default Uploaded Files 50 & Upload File Size is 100MB (php.ini)
 
 #### 13-05-2018
 ##### quicks.sh
