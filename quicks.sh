@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # APT Quick Shell
-# Version: 1.1
+# Version: 1.3
 
 # Commands & Descriptions:
 #	update : Update & Upgrade All.
@@ -84,13 +84,12 @@ case $_command in
 	purge) run_purge
 		run_clean
 	;;
-	fix) run_update
-		run_fix
+	fix) run_fix
+		run_clean
 		run_update
 	;;
 	all) run_purge
 		run_clean
-		run_update
 		run_fix
 		run_update
 		run_clean
@@ -98,11 +97,11 @@ case $_command in
 esac
 
 if [ $if_func_run = t ]; then
-	printf "${bold_txt}Complete.\n${normal_txt}"
+	printf "${bold_txt}\nComplete.\n${normal_txt}"
 
 	case $s_flag in
 		shutdown) shutdown -P now;;
 		restart) reboot;;
-		logout) gnome-session-quit --no-prompt;;
+		logout) sudo pkill -KILL -u $USER;;
 	esac
 fi
