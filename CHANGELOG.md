@@ -1,4 +1,4 @@
-#### --
+#### 26-05-2018
 ##### quicks.sh
 	Version: 1.3
 	Stability Improved
