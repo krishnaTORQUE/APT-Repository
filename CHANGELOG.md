@@ -8,7 +8,7 @@
 	Version: 1.2
 	Stability Improved
 
-##### NMP.sh
+##### NMP
 	Version: 1.5
 
 	Added:
