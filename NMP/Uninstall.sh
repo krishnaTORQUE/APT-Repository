@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Uninstall NGINX MYSQL PHP
-# NMP Version: 1.5
+# NMP Version: 1.6
 
 bold_txt=$(tput bold)
 normal_txt=$(tput sgr0)
@@ -46,4 +46,4 @@ sudo apt-get autoclean -y
 sudo apt autoremove -y
 sudo apt autoclean -y
 
-printf "${bold_txt}\nDone${normal_txt}\n"
+printf "${bold_txt}Done${normal_txt}\n\n"

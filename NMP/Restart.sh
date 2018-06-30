@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Restart NGINX MYSQL PHP
-# NMP Version: 1.5
+# NMP Version: 1.6
 
 bold_txt=$(tput bold)
 normal_txt=$(tput sgr0)
@@ -14,4 +14,4 @@ sudo systemctl restart nginx
 sudo chown -R $USER:www-data /var/www && sudo chown -R $USER:www-data /var/www/*
 sudo chmod -R u=rwx,g=rwx,o=- /var/www && sudo chmod -R u=rwx,g=rwx,o=- /var/www/*
 
-printf "${bold_txt}\nDone${normal_txt}\n"
+printf "${bold_txt}Done${normal_txt}\n\n"

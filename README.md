@@ -9,9 +9,9 @@ Linux APT Based OS Projects
 
 
 > **_Version_**
-- quicks.sh (1.3)
-- first-run-gnome.sh (1.2)
-- NMP (1.5)
+- quicks.sh (1.4)
+- First-Run-Gnome.sh (1.3)
+- NMP (1.6)
 
 
 

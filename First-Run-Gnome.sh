@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # APT First Run GNOME
-# Version: 1.2
+# Version: 1.3
 
 # NOTE:
 # 	Run only once when you install fresh GNOME based OS
@@ -46,7 +46,7 @@ printf "
 | |_| | |\  | |_| | |  | | |___  | |_| | |___ ___) | . \  | || |_| |  __/ 
  \____|_| \_|\___/|_|  |_|_____| |____/|_____|____/|_|\_\ |_| \___/|_|    
 
-                             Version: 1.2
+                             Version: 1.3
 
 "
 
@@ -89,7 +89,7 @@ read install_git
 
 
 ### All Done ###
-printf "${bold_txt}Ok Done. Please wait, it will take time. \nProcessing ...\n\n${normal_txt}"
+printf "${bold_txt}All Set. Please wait, it will take some time. \nProcessing ...\n\n${normal_txt}"
 
 # Enable Firewall
 sudo ufw enable
@@ -181,4 +181,4 @@ if [[ $install_git = Y ]] || [[ $install_git = y ]]; then
 	sudo apt-get install git-core -y
 fi
 
-printf "${bold_txt}\nJob Completed.\n${normal_txt}"
+printf "${bold_txt}Job Completed.\n\n${normal_txt}"

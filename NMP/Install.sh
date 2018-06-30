@@ -1,20 +1,19 @@
 #!/bin/bash
 
 # Installing NGINX MYSQL PHP
-# NMP Version: 1.5
+# NMP Version: 1.6
 
-# NOTE:
-#	Require Internet
+# NOTE: Require Internet Connection
 
 # Installing:
 # 			Nginx (Latest)
 # 			PHP 7.2
 # 			Mysql 5.7 / 8.0 (by User)
-# 			phpMyAdmin 4.8.1 (by User)
+# 			phpMyAdmin 4.8.2 (by User)
 
 # Configuring:
 #			Default Upload File Size 100 MB
-#			Default Upload Filers 100
+#			Default Upload Filers 50
 
 printf "
 	 _   _ __  __ ____  
@@ -23,7 +22,7 @@ printf "
 	| |\  | |  | |  __/ 
 	|_| \_|_|  |_|_|    
 
-            Verion: 1.5
+            Verion: 1.6
 
 "
 
@@ -89,15 +88,15 @@ sudo mysql_secure_installation
 if [[ $install_phpmyadmin = Y ]] || [[ $install_phpmyadmin = y ]]; then
 
 	sudo rm -rf /tmp/phpMyAdmin*
-	wget -P /tmp https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-4.8.1-english.zip
-	unzip /tmp/phpMyAdmin-4.8.1-english.zip -d /tmp
+	wget -P /tmp https://files.phpmyadmin.net/phpMyAdmin/4.8.2/phpMyAdmin-4.8.2-english.zip
+	unzip /tmp/phpMyAdmin-4.8.2-english.zip -d /tmp
 
 	phpmyadmin_dir='/var/www/html/phpmyadmin'
 	if [ -d $phpmyadmin_dir ]; then
 		rm -rf $phpmyadmin_dir
 	fi
 	mkdir $phpmyadmin_dir
-	cp -rf /tmp/phpMyAdmin-4.8.1-english/. $phpmyadmin_dir
+	cp -rf /tmp/phpMyAdmin-4.8.2-english/. $phpmyadmin_dir
 
 	rm -rf /tmp/phpMyAdmin*
 fi
@@ -141,4 +140,4 @@ nginx -v
 php -v
 mysql -V
 
-printf "${bold_txt}\nJob Done.\n${normal_txt}"
+printf "${bold_txt}NMP Install Complete.\n\n${normal_txt}"

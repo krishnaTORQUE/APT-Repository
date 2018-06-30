@@ -1,4 +1,29 @@
-#### 26-05-2018
+### 30-06-2018
+##### quicks.sh
+	Version: 1.4
+
+	Added:
+		superclean			"Remove Root / System Cache, Unnecessary Files."
+
+	Update:
+		Clean				"Marge with `purge`. 1 day old tmp/files will be deleted."
+
+	Removed:
+		'purge' 			"Marge with `clean`."
+		`-u`				"User Flag"
+
+##### First-Run-Gnome.sh
+	Version: 1.3
+	Finetune
+
+##### NMP
+	Version: 1.6
+
+	Update:
+		php.ini
+		phpMyAdmin (4.8.2)
+
+### 26-05-2018
 ##### quicks.sh
 	Version: 1.3
 	Stability Improved
@@ -24,7 +49,7 @@
 
 	NOTE: Default Uploaded Files 50 & Upload File Size is 100MB (php.ini)
 
-#### 13-05-2018
+### 13-05-2018
 ##### quicks.sh
 	Version: 1.1
 
