@@ -1,3 +1,17 @@
+### 16-11-2018
+	Edit: apt-get	>	apt
+
+##### quicks.sh
+	Version: 1.9
+	Stability Improved
+
+##### NMP
+	Version: 1.9
+	Stability Improved
+
+	Update:
+		phpmyadmin
+
 ### 30-06-2018
 ##### quicks.sh
 	Version: 1.4

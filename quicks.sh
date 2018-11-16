@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # APT Quick Shell
-# Version: 1.4
+# Version: 1.9
 
-#  Commands 	&		Descriptions:
+## Commands ##		## Descriptions ##
 #	update 		: Update & Upgrade All.
 #	clean  		: Clean Apps & Packages + Empty Trash, Temp, Remove Cache, Unnecessary Files & Packages & Old unused Kernel.
 #	both   		: Update & Clean.
@@ -25,17 +25,15 @@ while getopts c:s: option; do
 done
 
 function run_update() {
-	sudo apt-get update -y
-	sudo apt-get upgrade -y
-	sudo apt-get dist-upgrade -y
 	sudo apt update -y
 	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	if_func_run=t
 }
 
 function run_fix() {
-	sudo apt-get install -f
 	sudo dpkg --configure -a
+	sudo apt install -f
 	if_func_run=t
 }
 
@@ -45,13 +43,8 @@ function run_clean() {
 	sudo find /tmp/ -type f -atime +1 -exec sudo rm {} \;
 	sudo apt remove -y
 	sudo apt clean -y
-	sudo apt-get remove -y
-	sudo apt-get clean -y
-	sudo apt-get autoremove --purge -y
-	sudo apt autoremove -y
+	sudo apt autoremove --purge -y
 	sudo apt autoclean -y
-	sudo apt-get autoremove -y
-	sudo apt-get autoclean -y
 	if_func_run=t
 }
 
@@ -100,7 +93,8 @@ case $_command in
 		run_update
 		run_clean
 	;;
-	superclean) run_super_clean	
+	superclean) run_clean
+		run_super_clean	
 		run_clean
 	;;
 esac

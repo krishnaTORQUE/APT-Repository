@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Restart NGINX MYSQL PHP
-# NMP Version: 1.6
+# NMP Version: 1.9
 
 bold_txt=$(tput bold)
 normal_txt=$(tput sgr0)

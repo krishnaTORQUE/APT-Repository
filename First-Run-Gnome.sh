@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # APT First Run GNOME
-# Version: 1.3
+# Version: 1.9
 
 # NOTE:
 # 	Run only once when you install fresh GNOME based OS
@@ -46,7 +46,7 @@ printf "
 | |_| | |\  | |_| | |  | | |___  | |_| | |___ ___) | . \  | || |_| |  __/ 
  \____|_| \_|\___/|_|  |_|_____| |____/|_____|____/|_|\_\ |_| \___/|_|    
 
-                             Version: 1.3
+                             Version: 1.9
 
 "
 
@@ -113,28 +113,26 @@ if [[ $install_playonlinux = Y ]] || [[ $install_playonlinux = y ]]; then
 fi
 
 # Update & Upgrade All
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
 sudo apt update -y
 sudo apt upgrade -y
+sudo apt dist-upgrade -y
 
 # Adding quicks to home directory for better update & cleaning system
 wget https://raw.githubusercontent.com/krishnaTORQUE/APT-Repository/master/quicks.sh -P /home/$USER/
 
 # Ubuntu Codecs
-sudo apt-get install ubuntu-restricted-extras -y
+sudo apt install ubuntu-restricted-extras -y
 sudo dpkg-reconfigure libdvd-pkd -y
 
 # Install Xorg for Library & Drivers
-sudo apt-get install xserver-xorg -y
+sudo apt install xserver-xorg -y
 
 # Install Dconf-Editor
 sudo apt install dconf-editor -y
 
 # Install Gnome Tweak Tool & Shell & Extensions
 sudo apt install gnome-tweak-tool -y
-sudo apt-get install chrome-gnome-shell -y
+sudo apt install chrome-gnome-shell -y
 sudo apt install gnome-shell-extensions -y
 
 # Minimize when clicking icon in dock
@@ -158,27 +156,27 @@ fi
 
 # Install LibreOffice If true
 if [[ $install_libreoffice = Y ]] || [[ $install_libreoffice = y ]]; then
-	sudo apt-get install libreoffice -y
+	sudo apt install libreoffice -y
 fi
 
 # Install Anti Virus ClamAV
 if [[ $install_clamav = Y ]] || [[ $install_clamav = y ]]; then
-	sudo apt-get install clamav -y
+	sudo apt install clamav -y
 fi
 
 # Install ClamTK If true
 if [[ $install_clamtk = Y ]] || [[ $install_clamtk = y ]]; then
-	sudo apt-get install clamtk -y
+	sudo apt install clamtk -y
 fi
 
 # Install Play On Linux If true
 if [[ $install_playonlinux = Y ]] || [[ $install_playonlinux = y ]]; then
-	sudo apt-get install playonlinux -y
+	sudo apt install playonlinux -y
 fi
 
 # Install Git If true
 if [[ $install_git = Y ]] || [[ $install_git = y ]]; then
-	sudo apt-get install git-core -y
+	sudo apt install git-core -y
 fi
 
 printf "${bold_txt}Job Completed.\n\n${normal_txt}"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Installing NGINX MYSQL PHP
-# NMP Version: 1.6
+# NMP Version: 1.9
 
 # NOTE: Require Internet Connection
 
@@ -9,7 +9,7 @@
 # 			Nginx (Latest)
 # 			PHP 7.2
 # 			Mysql 5.7 / 8.0 (by User)
-# 			phpMyAdmin 4.8.2 (by User)
+# 			phpMyAdmin 4.8.3 (by User)
 
 # Configuring:
 #			Default Upload File Size 100 MB
@@ -22,7 +22,7 @@ printf "
 	| |\  | |  | |  __/ 
 	|_| \_|_|  |_|_|    
 
-            Verion: 1.6
+            Verion: 1.9
 
 "
 
@@ -42,25 +42,24 @@ function chdir_owner() {
 }
 
 printf "${bold_txt}\nProcessing ...\n${normal_txt}"
-sudo apt-get install software-properties-common -y
+sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:nginx/stable -y
 sudo add-apt-repository ppa:ondrej/php -y
 wget -P /tmp https://repo.mysql.com//mysql-apt-config_0.8.10-1_all.deb
 sudo dpkg -i /tmp/mysql-apt-config_0.8.10-1_all.deb
 
 printf "${bold_txt}\nUpdating ...\n${normal_txt}"
-sudo apt-get update -y
-sudo apt-get upgrade -y
+sudo apt update -y
+sudo apt upgrade -y
 
 printf "${bold_txt}\nInstalling Nginx ...\n${normal_txt}"
-sudo apt-get install nginx -y
+sudo apt install nginx -y
 
 printf "${bold_txt}Nginx Installed \n\nInstalling PHP ...\n${normal_txt}"
-sudo apt-get install php7.2-fpm -y
-sudo apt-get install php7.2-mysql php7.2-curl php7.2-json php7.2-gd libssh2-1 php-ssh2 php7.2-mbstring php7.2-zip php-xml php-xmlrpc -y
+sudo apt install php7.2-fpm php7.2-mysql php7.2-curl php7.2-json php7.2-gd php-ssh2 php7.2-mbstring php7.2-zip php-xml php-xmlrpc php7.2-common php7.2-opcache libssh2-1 -y
 
 printf "${bold_txt}PHP Installed \n\nInstalling Mysql ...\n${normal_txt}"
-sudo apt-get install mysql-server -y
+sudo apt install mysql-server -y
 
 printf "${bold_txt}Mysql Installed\n${normal_txt}"
 
@@ -87,16 +86,19 @@ sudo mysql_secure_installation
 # Installing phpMyAdmin if true
 if [[ $install_phpmyadmin = Y ]] || [[ $install_phpmyadmin = y ]]; then
 
+
+https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-all-languages.zip
+
 	sudo rm -rf /tmp/phpMyAdmin*
-	wget -P /tmp https://files.phpmyadmin.net/phpMyAdmin/4.8.2/phpMyAdmin-4.8.2-english.zip
-	unzip /tmp/phpMyAdmin-4.8.2-english.zip -d /tmp
+	wget -P /tmp https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-english.zip
+	unzip /tmp/phpMyAdmin-4.8.3-english.zip -d /tmp
 
 	phpmyadmin_dir='/var/www/html/phpmyadmin'
 	if [ -d $phpmyadmin_dir ]; then
 		rm -rf $phpmyadmin_dir
 	fi
 	mkdir $phpmyadmin_dir
-	cp -rf /tmp/phpMyAdmin-4.8.2-english/. $phpmyadmin_dir
+	cp -rf /tmp/phpMyAdmin-4.8.3-english/. $phpmyadmin_dir
 
 	rm -rf /tmp/phpMyAdmin*
 fi
