@@ -1,30 +1,48 @@
-# APT Projects
+# NMP
+
+**v1.12 : _Stable_**
 
 
+> #### _Description_
 
-> **_Description_**
+Install NGINX MySQL PHP & phpMyAdmin(optional) by one click.
 
-Linux APT Based OS Projects 
-
-
-
-> **_Version_**
-- quicks.sh (1.9)
-- NMP (1.9)
-- First-Run-Gnome.sh (1.9)
+Enable or Disable it at startup.
 
 
+> #### _Installing_
 
-> **_Tested_**
-- Ubuntu (17, 18)
+- Nginx
+- MySQL
+- PHP
+- phpMyAdmin
+
+
+> #### _Default Configuring_
+
+- Upload File Size 100 MB
+- Default Upload Filers 50
+
+
+> #### _Tested OS_
+
 - Debian 9
+- Ubuntu 16, 17, 18
+- Raspbian 2018
+- Mint 19
 
 
-
-> **_Note_**
-
-Codes are Well tested, but I am not responsible for any break to your system.
+> #### _Tested Environment_
+- Any (CLI & GUI)
 
 
+> ## _Note_
 
-> **_License (C) 2018 under GNU GPL V2._**
+- Network Connection Require.
+- Always Uninstall before update or reinstall NMP.
+- Never uninstall or remove NMP with different version. *
+- Report here for issue / bug.
+
+
+> ## _License (C) 2019 under GNU GPL V2._
+

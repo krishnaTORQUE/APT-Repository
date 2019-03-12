@@ -1,81 +1,40 @@
-### 16-11-2018
-	Edit: apt-get	>	apt
+# Change Log & History
 
-##### quicks.sh
-	Version: 1.9
+> ##### 12-03-2019 ~ _v1.12_ : _Stable_
+
+    Review All Files
+    Stability Improved
+    phpmyadmin 4.8.5
+    Startup Enable & Disable Added
+
+> ##### 16-11-2018 ~ _v1.9_ : _Stable_
+
+	apt-get	> apt
 	Stability Improved
+	phpmyadmin 4.8.3
 
-##### NMP
-	Version: 1.9
-	Stability Improved
+> ##### 30-06-2018 ~ _v1.6_ : _Stable_
 
-	Update:
-		phpmyadmin
+	php.ini
+	phpMyAdmin 4.8.2
 
-### 30-06-2018
-##### quicks.sh
-	Version: 1.4
+> ##### 26-05-2018 ~ _v1.5_ : _Stable_
 
-	Added:
-		superclean			"Remove Root / System Cache, Unnecessary Files."
-
-	Update:
-		Clean				"Marge with `purge`. 1 day old tmp/files will be deleted."
-
-	Removed:
-		'purge' 			"Marge with `clean`."
-		`-u`				"User Flag"
-
-##### First-Run-Gnome.sh
-	Version: 1.3
-	Finetune
-
-##### NMP
-	Version: 1.6
-
-	Update:
-		php.ini
-		phpMyAdmin (4.8.2)
-
-### 26-05-2018
-##### quicks.sh
-	Version: 1.3
-	Stability Improved
-	-s Flat `logout` works fine on all system.
-
-##### first-run-gnome.sh
-	Version: 1.2
-	Stability Improved
-
-##### NMP
-	Version: 1.5
-
-	Added:
+	:: Added ::
 		Restart
 		Stop
 		Uninstall
 		Mysql 8.0 (By User)
-		phpMyAdmin (4.8.1)
+		phpMyAdmin 4.8.1
 
-	Improved:
-		Setup
+	:: Improved ::
+        Setup
 		Configure Files
 
-	NOTE: Default Uploaded Files 50 & Upload File Size is 100MB (php.ini)
+	:: NOTE :: 
+        Default Uploaded Files 50 & Upload File Size is 100MB (php.ini)
 
-### 13-05-2018
-##### quicks.sh
-	Version: 1.1
+> ##### 04-05-2018 ~ _v1.0_ : _Alpha_
 
-	Added:
-		Flags / Options   -c for Commands | -u AS sudo only | -s for shutdown, restart, logout
-                          e.g. -u sudo -s restart -c update (Flags can be place in any order)
-                          NOTE: -s Flat `logout` only works on Gnome Shell. Only Logout, Shutdown & Restart works fine.
-
-		purge             New Command (Clean All + Remove Cache, Unnecessary Files & Packages & Old unused Kernel.)
-
-#### 04-05-2018
-    Initial
-		quicks.sh
-		first-run-gnome.sh
-		Install NMP
+    First Made
+    Initial Release
